@@ -335,7 +335,6 @@
     padding: 0;
     display: flex;
     min-height: 90vh;
-    background:transparent;
     align-items: center;
     justify-content: center;
   }
