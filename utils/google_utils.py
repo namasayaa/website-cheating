@@ -29,7 +29,7 @@ def attempt_download(file, repo='WongKinYiu/yolov7'):
             assets = ['yolov7.pt', 'yolov7-tiny.pt', 'yolov7x.pt', 'yolov7-d6.pt', 'yolov7-e6.pt', 
                       'yolov7-e6e.pt', 'yolov7-w6.pt']
             tag = subprocess.check_output('git tag', shell=True).decode().split()[-1]
-            raise
+
 
         name = file.name
         if name in assets:
@@ -51,7 +51,7 @@ def attempt_download(file, repo='WongKinYiu/yolov7'):
                     file.unlink(missing_ok=True)  # remove partial downloads
                     print(f'ERROR: Download failure: {msg}')
                 print('')
-                return none
+                
 
 
 def gdrive_download(id='', file='tmp.zip'):
