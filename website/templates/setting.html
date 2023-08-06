@@ -10,7 +10,7 @@
         <div class="profile-tab-nav border-right">
           <div class="p-4">
             <div class="img-circle text-center mb-3">
-              <img src="{{ url_for('static', filename='/uploads/' + user.profile_picture) }}" id="photo"/>
+              <img src="{{ url_for('static', filename='/uploads/' + user.profile_picture) }}" id="photo" alt="profile"/>
               <input type="file" id="file">
               <label for="file" id="uploadbtn"><ion-icon name="cloud-upload-outline" style="font-size: 1em;"></ion-icon></label>
             </div>
@@ -41,12 +41,6 @@
                   <br>{{ current_user.name}}<br/>
                 </div>
               </div>
-              <!-- <div class="col-md-6">
-                <div class="form-group">
-                  <label>Last Name</label>
-                  <input type="text" class="form-control" placeholder="Last Name" />
-                </div>
-              </div> -->
               <div class="col-md-6">
                 <div class="form-group">
                   <strong><label>Email :</label></strong>
