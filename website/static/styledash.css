@@ -218,9 +218,7 @@
     .links li:hover .js-arrow {
       transform: rotate(0deg);
     }
-    .navbar .links li .sub-menu .more-sub-menu {
-      display: none;
-    }
+
     .navbar .links li .sub-menu .more span {
       /* background: red; */
       display: flex;
