@@ -1,0 +1,37 @@
+{% extends "Baseauth.html" %} {% block title %}Login{% endblock %}
+
+{% block Content %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+<div class="wrapper">
+    <header>LOGIN</header>
+    <form action="#" method="POST">
+        {{ form.hidden_tag() }}
+      <div class="field email">
+        <div class="input-area">
+            {{ form.username(class="form-control", placeholder="Username")}}
+          <i class="icon fas fa-user"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Username tidak boleh kosong</div>
+      </div>
+      <div class="field password">
+        <div class="input-area">
+            {{ form.password(class="form-control", placeholder="Password")}}
+          <i class="icon fas fa-lock"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Password tidak boleh kosong</div>
+      </div>
+      <div class="pass-txt"><a href="{{url_for('auth.reset')}}">Forgot password?</a></div>
+      <input type="submit" value="Login">
+    </form>
+    <div class="sign-txt">Don't have an account? <a href="{{url_for('auth.signup')}}">Register</a></div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="{url_for('static',filename='snake.js')}"></script>
+    <link rel="stylesheet" href="{url_for('static',filename='stylelogin.css')}">
+</body>
+
+{% endblock %}

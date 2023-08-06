@@ -1,0 +1,48 @@
+{% extends "Baseauth.html" %} {% block title %}Sign Up{% endblock %}
+
+{% block Content %}
+<div class="wrapper">
+  <header>REGISTER</header>
+  <form action="#" method="POST">
+      {{ form.hidden_tag() }}
+    <div class="field email">
+      <div class="input-area">
+        {{ form.name(class="form-control", placeholder="Name")}}
+        <i class="icon fas fa-user"></i>
+        <i class="error error-icon fas fa-exclamation-circle"></i>
+      </div>
+      <div class="error error-txt">Name can't be blank</div>
+    </div>
+    <div class="field email">
+      <div class="input-area">
+        {{ form.username(class="form-control", placeholder="Username")}}
+        <i class="icon fas fa-user"></i>
+        <i class="error error-icon fas fa-exclamation-circle"></i>
+      </div>
+      <div class="error error-txt">Username can't be blank</div>
+    </div>
+    <div class="field email">
+      <div class="input-area">
+        {{ form.email_address(class="form-control", type="Email", placeholder="Email")}}
+        <i class="icon fas fa-envelope"></i>
+        <i class="error error-icon fas fa-exclamation-circle"></i>
+      </div>
+      <div class="error error-txt">Email can't be blank</div>
+    </div>
+    <div class="field password">
+      <div class="input-area">
+          {{ form.password(class="form-control", placeholder="Password")}}
+        <i class="icon fas fa-lock"></i>
+        <i class="error error-icon fas fa-exclamation-circle"></i>
+      </div>
+      <div class="error error-txt">Password can't be blank</div>
+    </div>
+    <input type="submit" value="Register">
+  </form>
+  <div class="sign-txt">Already Have an Account? <a href="/" class="Login-Link">Login</a></div>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="{ url_for('static',filename='snake.js')}"></script>
+  <link rel="stylesheet" href="{url_for('static',filename='stylelogin.css')}">
+</body>
+{% endblock %}

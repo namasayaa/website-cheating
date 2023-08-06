@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewpoint" content="width=device-width">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='stylelogin.css')}}">
+</head>
+<body>
+  <header>
+    <h2 class="Logo">POLITEKNIK NEGERI JAKARTA</h2>
+</header>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            {% if category == 'error' %}
+            <div class="alert alert-{{category }}" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            {% else %}
+            <div class="alert alert-success alter dismissable fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    <div class="container">
+        {% block Content %}
+        {% endblock %}
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Auto-close flash messages after 5 seconds (5000 milliseconds)
+    $('.alert').delay(3000).fadeOut('slow');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends "Baseauth.html" %} {% block title %}Forgot Password{% endblock %}
+
+{% block Content %}
+<div class="wrapper">
+    <header>NEW PASSWORD</header>
+    <form action="#" method="POST">
+        {{ form.hidden_tag() }}
+      <div class="field email">
+        <div class="input-area">
+            {{ form.password(class="form-control",placeholder="New Password")}}
+          <i class="icon fas fa-user"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Password can't be blank</div>
+      </div>
+      <div class="field password">
+        <div class="input-area">
+            {{ form. confirm_password(class="form-control",placeholder="Confirm Password")}}
+          <i class="icon fas fa-lock"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Password can't be blank</div>
+    </div>
+      <input type="submit" value="Reset Password">
+    </form>
+    <div class="sign-txt">Already Have an Account? <a href="/" class="Login-Link">Login</a></div>
+    <div class="sign-txt">Don't have an account? <a href="{{url_for('auth.signup')}}">Register</a></div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="{ url_for('static',filename='snake.js')}"></script>
+    <link rel="stylesheet" href="{url_for('static',filename='stylelogin.css')}">
+</body>
+{% endblock %}

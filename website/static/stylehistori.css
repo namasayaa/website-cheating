@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  body {
+    background: linear-gradient(135deg, #acb6e5, #86fde8);
+  }
+  
+  .container {
+    font-size: 20px;
+    margin-top: 40px;
+  }
+  
+  .cons {
+    display: flex;
+    height: 100vh;
+    width: 100vh;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .contain {
+    background: white;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-size: 15px;
+  }
+  
+  .cons .contain .row-md-4 .tittle {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+  }
+  
+  .cons .contain .row-md-4 .tittle::before {
+    content: "";
+    position: absolute;
+    left: 4;
+    bottom: 0;
+    height: 3px;
+    width: 40px;
+    background: linear-gradient(135deg, #acb6e5, #86fde8);
+  }
+  
+  .cons .contain .row-md-4 .button {
+    height: 35px;
+    margin: 5px 0;
+  }
+  .cons .contain .row-md-4 .button {
+    height: 45px;
+    margin-top: 20px;
+  }
+  
+  .cons .contain .row-md-4 .button input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: black;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #acb6e5, #86fde8);
+  }
+  
+  .cons .contain .row-md-4 .button input:hover {
+    background: linear-gradient(-135deg, #acb6e5, #86fde8);
+  }
+  
+  .data_table {
+    background: #fff;
+    padding: 15px;
+    box-shadow: 1px 3px 5px #aaa;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 15px;
+  }
+  
+  .data_table .btn {
+    padding: 5px 10px;
+    margin: 10px 3px 10px 0;
+  }
+  
+  .tables {
+    background: linear-gradient(135deg, #acb6e5, #86fde8);
+  }
+  .tittle {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .tittle::before {
+    content: "";
+    position: absolute;
+    left: 4;
+    bottom: 0;
+    height: 3px;
+    width: 35px;
+    background: linear-gradient(135deg, #acb6e5, #86fde8);
+  }
+  @media only screen and (max-width:800px) {
+    #no-more-tables tbody,
+    #no-more-tables tr,
+    #no-more-tables td {
+      display: block;
+    }
+    #no-more-tables thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    #no-more-tables td {
+      position: relative;
+      padding-left: 50%;
+      border: none;
+      border-bottom: 1px solid #000;
+    }
+    #no-more-tables td::before {
+      content: attr(data-tittle);
+      position: absolute;
+      left: 6px;
+      font-weight: bold;
+    }
+    #no-more-tables tr {
+      border-bottom: 1px solid #86fde8;
+    }
+  }

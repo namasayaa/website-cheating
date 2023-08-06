@@ -1,0 +1,43 @@
+{% extends "Base.html" %} {% block title %}Pengawasan{% endblock %}
+
+{% block Content %}
+<script src="https://kit.fontawesome.com/3c7889a4ec.js" crossorigin="anonymous"></script>
+<div class="video-player">
+  <img class = "video" src="{{ url_for('app.webapp') }}" alt="Loading...">
+  <div class="player-controls">
+    <div class="video-progress">
+      <div class="video-progress-filled"></div>
+    </div>
+    <div class="inner-player-controls">
+      <button class="snap" id="stop_detection" title="Stop"><i class="fas fa-stop"></i></button>
+      <button class="fullscreen control-button">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+</div>
+  <script>
+    var videoPlayer = document.querySelector('.video-player')
+    var video = videoPlayer.querySelector('.video')
+    var fullscreen = videoPlayer.querySelector('.fullscreen')
+    var stopDetectionBtn = document.getElementById('stop_detection');
+    stopDetectionBtn.addEventListener('click', function() {
+      fetch("/stop")
+        .then(function(response) {
+            if (response.ok) {
+                window.location.href = "/histori";
+            } else {
+                console.log("Error stopping detection.");
+            }
+        })
+        .catch(function(error) {
+            console.log("Error stopping detection:", error)
+        });
+    });
+    //fullscreen
+    fullscreen.addEventListener('click', ()=>{
+      video.requestFullscreen();
+    })
+  </script>
+{% endblock %}
+

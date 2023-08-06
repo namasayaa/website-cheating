@@ -1,0 +1,153 @@
+{% extends "Base.html" %} {% block title %}Setting{% endblock %}
+
+{% block Content %}
+<link rel="stylesheet" href="{{ url_for('static',filename='stylesetting.css')}}" />
+<section class="py-5 my-4">
+  <form class= "form-setting" action="/setting" method="POST">
+    <div class="container">
+      <div class="bg-white shadow rounded-lg d-block d-sm-flex">
+        {{ form.hidden_tag() }}
+        <div class="profile-tab-nav border-right">
+          <div class="p-4">
+            <div class="img-circle text-center mb-3">
+              <img src="{{ url_for('static', filename='/uploads/' + user.profile_picture) }}" id="photo"/>
+              <input type="file" id="file">
+              <label for="file" id="uploadbtn"><ion-icon name="cloud-upload-outline" style="font-size: 1em;"></ion-icon></label>
+            </div>
+            <h4 class="text-center">{{ current_user.username }}</h4>
+          </div>
+          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="user-tab" data-toggle="pill" href="#user" role="tab" aria-controls="user" aria-selected="true">
+							<i class="fa fa-bell text-center mr-1"></i> 
+							Profile
+						</a>
+            <a class="nav-link " id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="false">
+              <i class="fa fa-home text-center mr-1"></i>
+              Update Account
+            </a>
+            <a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
+              <i class="fa fa-key text-center mr-1"></i>
+              Password
+            </a>
+          </div>
+        </div>
+        <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+          <div class="tab-pane fade show active" id="user" role="tabpanel" aria-labelledby="user-tab">
+            <h3 class="mb-4">Profile</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <strong><label>Nama :</label></strong>
+                  <br>{{ current_user.name}}<br/>
+                </div>
+              </div>
+              <!-- <div class="col-md-6">
+                <div class="form-group">
+                  <label>Last Name</label>
+                  <input type="text" class="form-control" placeholder="Last Name" />
+                </div>
+              </div> -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <strong><label>Email :</label></strong>
+                  <br>{{ current_user.email}}<br/>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <strong><label>Nomor Induk Pengajar :</label></strong>
+                  <br>{{ current_user.handphone}}<br/>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <strong><label>Bio :</label></strong>
+                  <br>{{ current_user.bio}}<br/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
+            <h3 class="mb-4">Account Settings</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>First Name</label>
+                  {{ form.name(class="form-control", placeholder="Nama",value=name_to_update.name)}}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Email</label>
+                  {{ form.email_address(class="form-control", type="Email", placeholder="Email",value=name_to_update.email)}}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Nomor Induk Pengajar</label>
+                  {{ form.phone(class="form-control", type="Number", placeholder="NIP",value=name_to_update.handphone)}}
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Bio</label>
+                  {{ form.bio(class="form-control",value=name_to_update.bio)}}
+                </div>
+              </div>
+            </div>
+            <div>
+              <button class="btn btn-primary" onclick="updateSettings('account-tab')">Update</button>
+              <button class="btn btn-dark">Cancel</button>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+            <h3 class="mb-4">Password Settings</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Old password</label>
+                  {{ form.old_password(class="form-control")}}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>New password</label>
+                  {{ form.new_password(class="form-control")}}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Confirm new password</label>
+                  {{ form.confirm_password(class="form-control")}}
+                </div>
+              </div>
+            </div>
+            <div>
+              <button class="btn btn-primary" onclick="updateSettings('password-tab')">Update</button>
+              <button class="btn btn-dark">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input type="hidden" name="setting_type" id="setting_type_input" value="">
+  </form>
+  </section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static',filename='img.js')}}"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script>
+  function updateSettings(activeTabId) {
+    $('#setting_type_input').val(activeTabId);
+    console.log('Updated setting_type:', $('#setting_type_input').val());
+    // Submit the form after updating the setting_type
+    $('.form-setting').submit();
+  }
+</script>
+{% endblock %}

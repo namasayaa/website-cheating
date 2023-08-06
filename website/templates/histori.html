@@ -1,0 +1,62 @@
+{% extends "Base.html" %} {% block tittle %} Histori {% endblock %}
+
+{% block Content %}
+<!-- <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" /> -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" />
+
+
+<link rel="stylesheet" href="{{ url_for('static',filename='stylehistori.css')}}" />
+<script defer src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script defer src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script defer src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script defer src="{{ url_for('static',filename='table.js')}}"></script>
+
+<div class="container">
+  <form class= "form-register" action="#" method="POST">
+    <div class="row" id="no-more-tables">
+      <div class="col-12">
+        <div class="data_table">
+          <div class="tittle">Histori</div>
+          <table id="example" class="table table-striped table-bordered">
+            <thead class="tables">
+              <tr>
+                <th>Nama Pengawas</th>
+                <th>Mata Pelajaran</th>
+                <th>Kelas</th>
+                <th>Ruang</th>
+                <th>Tanggal</th>
+                <th>Waktu</th>
+                <th>Option</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if current_user.is_authenticated %}
+              {% for Formulir in formulir %}
+              {%if Formulir.name == current_user.name%}
+              <tr>
+                <td data-tittle="Nama Pengawas">{{ Formulir.name }}</td>
+                <td data-tittle="Mata Pelajaran">{{ Formulir.subject }}</td>
+                <td data-tittle="Kelas">{{ Formulir.classes }}</td>
+                <td data-tittle="Ruang">{{ Formulir.room }}</td>
+                <td data-tittle="Tanggal">{{ Formulir.date.strftime("%a,%d %b %Y") }}</td>
+                <td data-tittle="Waktu">{{ Formulir.time.strftime("%H.%M") }}</td>
+                <td data-tittle="Option">
+                  <a href="{{url_for('app.histori2', history_id=Formulir.id)}}" class="btn btn-outline-primary "  
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">View</a>
+                  <a href="/history/{{Formulir.id}}" onclick="return confirm('Are You Sure to Deleted?')"
+                  class="btn btn-outline-danger btn-sm"style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Delete</a>
+                </td>
+              </tr>
+              {%endif%}
+              {% endfor %}
+              {%endif%}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}

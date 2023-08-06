@@ -1,0 +1,27 @@
+{% extends "Base.html" %} {% block tittle %}Histori View{% endblock %}
+
+{% block Content %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static',filename='styless.css')}}" />
+<body>
+<section class="gallery">
+    <div class="container">
+        <div class="gallery-items">
+              {% for screenshot in screenshots%}
+              <div class="item">
+                    <img src="{{ screenshot }}" alt="gallery">
+              </div>
+              {% endfor %}
+        </div>
+        <div class="pagination">
+            <div class="prev">Prev</div>
+            <div class="page">Page <span class="page-num"></span></div>
+            <div class="next">Next</div>
+        </div>
+    </div>
+</section>
+</body>
+<script src="{{ url_for('static',filename='scriptss.js')}}"></script>
+{% endblock %}

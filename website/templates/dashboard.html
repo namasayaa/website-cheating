@@ -1,0 +1,47 @@
+{% extends "Base.html" %} {% block title %} Formulir {% endblock %}
+
+{% block Content %}
+<section class="cons">
+    <div class="contain">
+      <form class="row-md-4" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="tittle">Form Berita Ujian</div>
+        <div class="col-md-12">
+          <label for="inputName1" class="form-label">Nama Pengawas</label>
+          <!-- <input type="text" class="form-control" id="inputName" placeholder="Enter Your Name" required /> -->
+          {{ form.nama_pengawas(class="form-control",)}}
+        </div>
+        <div class="col-md-12">
+          <label for="inputDate" class="form-label">Tanggal Ujian</label>
+          <!-- <input type="date" class="form-control" id="inputDate" required /> -->
+          {{ form.tanggal(class="form-control")}}
+        </div>
+        <div class="col-md-12">
+          <label for="inputtime" class="form-label">Jam Ujian</label>
+          <!-- <input type="time" class="form-control" id="inputtime" required /> -->
+          {{ form.jam(class="form-control")}}
+        </div>
+        <div class="col-md-12">
+          <label for="inputRoom" class="form-label">Ruangan Ujian</label>
+          <!-- <input type="text" class="form-control" id="inputAddress2" placeholder="Ruangan" required /> -->
+          {{ form.ruangan(class="form-control")}}
+        </div>
+        <div class="col-md-12">
+          <label for="inputClass" class="form-label">Kelas</label>
+          <!-- <input type="text" class="form-control" id="inputClass" placeholder="Kelas" required /> -->
+          {{ form.kelas(class="form-control")}}
+        </div>
+        <div class="col-md-12">
+          <label for="inputMatkul" class="form-label">Mata Kuliah</label>
+          <!-- <input type="text" class="form-control" id="inputMatkul" placeholder="Mata Pelajaran" required /> -->
+          {{ form.matkul(class="form-control")}}
+        </div>
+        <div class="button">
+          <button type="submit" class="btn">{{ form.submit(class="btn") }}</button>
+          <!-- <a href="Pengawasan.html"><button type="submit">Submit</button></a> -->
+        </div>
+      </form>
+    </div>
+  </section>
+
+  {% endblock %}

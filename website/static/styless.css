@@ -1,0 +1,114 @@
+body{
+	margin:0;
+	background-color: #efefef;
+}
+*{
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+.container{
+	max-width: 1000px;
+	margin: auto;
+}
+.gallery{
+	width: 100%;
+	float: left;
+	padding:30px 15px;
+	margin-top: 75px;
+}
+.gallery .gallery-items .item{
+	display: flex;
+	float: left;
+	width:25%;
+	position: relative;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.gallery .gallery-items .item.hide{
+	display: none;
+}
+.gallery .gallery-items .item.show{
+	display: block;
+	animation: show .5s ease;
+}
+@keyframes show{
+    0%{
+    	opacity:0;
+    	transform: scale(0.9);
+    }
+    100%{
+    	opacity:1;
+    	transform: scale(1);
+    }
+}
+
+
+.gallery .gallery-items .item img{
+	width: 100%;
+	display: block;
+}
+.gallery .pagination{
+	width: 100%;
+	float: left;
+	padding:15px;
+	margin-left: 326px;
+	font-size: 15px;
+}
+.gallery .pagination div{
+	display: inline-block;
+	margin:0 10px;
+	font-size: 18px;
+}
+.gallery .pagination .page{
+	color:gray;
+}
+.gallery .pagination .prev,.gallery .pagination .next{
+ color:#000;
+ border:1px solid #000;
+ font-size:15px;
+ padding:7px 15px;
+ cursor: pointer;
+ border-radius: 5px;
+}
+
+.gallery .pagination .prev.disabled,
+.gallery .pagination .next.disabled{
+	border-color: gray;
+	color:gray;
+	pointer-events: none;
+}
+@media(max-width: 584px){
+    .gallery{
+     max-width: 100%;
+   }
+   div .container .gallery-items{
+       margin-bottom: 15px;
+       width: 100%;
+     }
+     .container .row-md-4{
+       max-height: 300px;
+       overflow-y: scroll;
+     }
+     .container::-webkit-scrollbar{
+       width: 5px;
+     }
+	 .item {
+        width: 50%;}
+     }
+@media only screen and (max-width: 800px) {
+    .item {
+        width: 50%;
+    }
+	.gallery .pagination {
+		display: block;
+		margin-left: -0px;
+	}
+}
+
+/* On even smaller screens, display one item per row */
+@media only screen and (max-width: 480px) {
+    .item {
+        width: 100%;
+    }
+}
