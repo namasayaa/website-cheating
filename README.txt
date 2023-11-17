@@ -1,6 +1,8 @@
 # Pendeteksi Kecurangan Ujian by Adi Ageng Asy'ari
 
-Website ini berfungsi untuk membantu pengawas dalam melakukan pengawasan ketika ujian berlangsung
+website ini dibuat dengan bahaas python dengan menggunakan framework flask yang berguna untuk membantu pengawas dalam melakukan pengawasan ketika ujian berlangsung. dengan bantuan machine learning unutuk menindetifikasi gerakan-gerakan yang mengarah kecurangan ketika ujian dengan bantuan ip cam.
+contohnya gerakan :
+menengok kanan dan kiri, menggunakan handphone, dan menunduk
 
 ## Installation
 
